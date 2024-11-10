@@ -5,13 +5,35 @@ class Preferences extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         Row(
-          children: [Text("Strength: "), Text("3"), SizedBox(width: 50)],
+          children: [
+            const Text("Strength: "),
+            const Text("20 "),
+            Image.asset(
+              "assets/img/coffee_bean.png",
+              width: 40,
+              color: Colors.brown[100],
+              colorBlendMode: BlendMode.multiply,
+            ),
+            const Expanded(child: const SizedBox(width: 50)),
+            const Text("+"),
+          ],
         ),
         Row(
-          children: [Text("Sugars: "), Text("3"), SizedBox(width: 50)],
+          children: [
+            const Text("Sugars: "),
+            const Text("10 "),
+            Image.asset(
+              "assets/img/sugar_cube.png",
+              width: 40,
+              color: Colors.brown[100],
+              colorBlendMode: BlendMode.multiply,
+            ),
+            const Expanded(child: const SizedBox(width: 50)),
+            const Text("+"),
+          ],
         ),
       ],
     );
