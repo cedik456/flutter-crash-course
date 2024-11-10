@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/home.dart';
+import 'package:test_flutter/login.dart';
 
 void main() {
-  runApp(const MaterialApp(home: Home()));
+  runApp(MaterialApp(home: LoginScreen()));
 }
 
 class Sandbox extends StatelessWidget {
