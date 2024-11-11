@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/home.dart';
 
 void main() {
-  runApp(const MaterialApp(home: Home()));
+  runApp(const MaterialApp(
+    home: Home(),
+    debugShowCheckedModeBanner: false,
+  ));
 }
 
 class Sandbox extends StatelessWidget {

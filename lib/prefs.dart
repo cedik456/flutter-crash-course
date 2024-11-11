@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
 
-class Preferences extends StatelessWidget {
+class Preferences extends StatefulWidget {
   const Preferences({super.key});
 
+  @override
+  State<Preferences> createState() => _PreferencesState();
+}
+
+class _PreferencesState extends State<Preferences> {
+  int strength = 1;
+  int sugar = 1;
+
   void increaseStrength() {
-    print("Increase strength by 1");
+    setState(() {
+      strength = strength < 5 ? strength + 1 : 1;
+    });
   }
 
   void increaseSugar() {
-    print("Increase sugar by 1");
+    setState(() {
+      sugar = sugar < 5 ? sugar + 1 : 0;
+    });
   }
 
   @override
@@ -18,13 +30,13 @@ class Preferences extends StatelessWidget {
         Row(
           children: [
             const Text("Strength: "),
-            const Text("20 "),
-            Image.asset(
-              "assets/img/coffee_bean.png",
-              width: 40,
-              color: Colors.brown[100],
-              colorBlendMode: BlendMode.multiply,
-            ),
+            for (int i = 0; i < strength; i++)
+              Image.asset(
+                "assets/img/coffee_bean.png",
+                width: 30,
+                color: Colors.brown[100],
+                colorBlendMode: BlendMode.multiply,
+              ),
             const Expanded(child: SizedBox(width: 50)),
             FilledButton(
               style: FilledButton.styleFrom(
@@ -37,13 +49,19 @@ class Preferences extends StatelessWidget {
         Row(
           children: [
             const Text("Sugars: "),
-            const Text("10 "),
-            Image.asset(
-              "assets/img/sugar_cube.png",
-              width: 40,
-              color: Colors.brown[100],
-              colorBlendMode: BlendMode.multiply,
-            ),
+            if (sugar == 0)
+              const Text(
+                "No sugar",
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.brown),
+              ),
+            for (int i = 0; i < sugar; i++)
+              Image.asset(
+                "assets/img/sugar_cube.png",
+                width: 30,
+                color: Colors.brown[100],
+                colorBlendMode: BlendMode.multiply,
+              ),
             const Expanded(child: SizedBox(width: 50)),
             FilledButton(
               style: FilledButton.styleFrom(
