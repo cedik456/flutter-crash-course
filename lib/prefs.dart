@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/widgets/bodyText.dart';
+import 'package:test_flutter/widgets/increaseButton.dart';
 
 class Preferences extends StatefulWidget {
   const Preferences({super.key});
@@ -29,7 +31,7 @@ class _PreferencesState extends State<Preferences> {
       children: [
         Row(
           children: [
-            const Text("Strength: "),
+            const StyledBodyText("Strength: "),
             for (int i = 0; i < strength; i++)
               Image.asset(
                 "assets/img/coffee_bean.png",
@@ -38,17 +40,12 @@ class _PreferencesState extends State<Preferences> {
                 colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox(width: 50)),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                  backgroundColor: Colors.brown, foregroundColor: Colors.white),
-              onPressed: increaseStrength,
-              child: const Text("+"),
-            ),
+            IncreaseButton(onPressed: increaseStrength, child: const Text("+"))
           ],
         ),
         Row(
           children: [
-            const Text("Sugars: "),
+            const StyledBodyText("Sugar: "),
             if (sugar == 0)
               const Text(
                 "No sugar",
@@ -63,12 +60,7 @@ class _PreferencesState extends State<Preferences> {
                 colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox(width: 50)),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                  backgroundColor: Colors.brown, foregroundColor: Colors.white),
-              onPressed: increaseSugar,
-              child: const Text('+'),
-            )
+            IncreaseButton(onPressed: increaseSugar, child: const Text("+"))
           ],
         ),
       ],

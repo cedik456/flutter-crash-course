@@ -9,8 +9,8 @@ class StyledBodyText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(
-          color: Colors.brown, fontWeight: FontWeight.bold, fontSize: 15),
+      style: TextStyle(
+          color: Colors.brown[900], fontWeight: FontWeight.bold, fontSize: 15),
     );
   }
 }
